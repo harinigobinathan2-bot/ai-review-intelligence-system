@@ -106,6 +106,6 @@ The goal of this project is to demonstrate how **Python, Natural Language Proces
 
 ## Author
 
-**Harini Gobinathan**
+**Harini G**
 
-B.Tech Student | Aspiring Data Analyst
+B.Tech.IT Student | Aspiring Data Analyst
