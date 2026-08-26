@@ -3,7 +3,7 @@ import pandas as pd
 from textblob import TextBlob
 
 # ------------------ PAGE CONFIG ------------------
-st.set_page_config(page_title="Review Intelligence", layout="wide")
+st.set_page_config(page_title="Review Intelligence ", layout="wide")
 
 # ------------------ HEADER ------------------
 st.markdown("""
