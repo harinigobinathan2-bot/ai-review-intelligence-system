@@ -18,12 +18,63 @@ option = st.sidebar.radio("Choose Input Type:", ["Upload File", "Manual Input"])
 st.sidebar.info("Analyze customer sentiment using NLP")
 
 # ------------------ SENTIMENT FUNCTION ------------------
+# ------------------ SENTIMENT FUNCTION ------------------
 def get_sentiment(text):
-    polarity = TextBlob(str(text)).sentiment.polarity
+    text_lower = str(text).lower().strip()
 
-    if polarity > 0:
+    # Negative phrases
+    negative_phrases = [
+        "don't love",
+        "do not love",
+        "not love",
+        "don't like",
+        "do not like",
+        "not good",
+        "not happy",
+        "not satisfied",
+        "not worth",
+        "very bad",
+        "very poor",
+        "damaged product",
+        "product is damaged",
+        "damaged",
+        "broken",
+        "defective",
+        "worst",
+        "terrible",
+        "awful",
+        "useless",
+        "disappointed",
+        "disappointing"
+    ]
+
+    # Positive phrases
+    positive_phrases = [
+        "love this",
+        "love it",
+        "really good",
+        "very good",
+        "excellent",
+        "amazing",
+        "awesome",
+        "perfect",
+        "highly recommend"
+    ]
+
+    # Check negative phrases FIRST
+    if any(phrase in text_lower for phrase in negative_phrases):
+        return "Negative"
+
+    # Check positive phrases
+    if any(phrase in text_lower for phrase in positive_phrases):
         return "Positive"
-    elif polarity < 0:
+
+    # TextBlob sentiment for other reviews
+    polarity = TextBlob(text_lower).sentiment.polarity
+
+    if polarity > 0.1:
+        return "Positive"
+    elif polarity < -0.1:
         return "Negative"
     else:
         return "Neutral"
