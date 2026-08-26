@@ -3,7 +3,7 @@ import pandas as pd
 from textblob import TextBlob
 
 # ------------------ PAGE CONFIG ------------------
-st.set_page_config(page_title="Review Intelligence ", layout="wide")
+st.set_page_config(page_title="Review Intelligence  ", layout="wide")
 
 # ------------------ HEADER ------------------
 st.markdown("""
@@ -20,45 +20,68 @@ st.sidebar.info("Analyze customer sentiment using NLP")
 # ------------------ SENTIMENT FUNCTION ------------------
 # ------------------ SENTIMENT FUNCTION ------------------
 def get_sentiment(text):
-    text_lower = str(text).lower().strip()
+    text = str(text).strip()
+    text_lower = text.lower()
 
-    # Negative phrases
+    # ------------------ NEGATIVE PHRASES ------------------
     negative_phrases = [
         "don't love",
         "do not love",
         "not love",
         "don't like",
         "do not like",
+        "not like",
         "not good",
+        "not great",
         "not happy",
         "not satisfied",
         "not worth",
+        "not worth the price",
+        "bad experience",
+        "poor quality",
         "very bad",
         "very poor",
         "damaged product",
         "product is damaged",
+        "product was damaged",
         "damaged",
         "broken",
         "defective",
         "worst",
         "terrible",
         "awful",
+        "horrible",
         "useless",
         "disappointed",
-        "disappointing"
+        "disappointing",
+        "waste of money",
+        "waste money",
+        "never buy",
+        "do not recommend",
+        "don't recommend"
     ]
 
-    # Positive phrases
+    # ------------------ POSITIVE PHRASES ------------------
     positive_phrases = [
         "love this",
         "love it",
+        "really love",
         "really good",
         "very good",
+        "very great",
         "excellent",
         "amazing",
         "awesome",
         "perfect",
-        "highly recommend"
+        "fantastic",
+        "wonderful",
+        "great product",
+        "good product",
+        "good quality",
+        "highly recommend",
+        "satisfied",
+        "happy with",
+        "worth the price"
     ]
 
     # Check negative phrases FIRST
@@ -69,8 +92,8 @@ def get_sentiment(text):
     if any(phrase in text_lower for phrase in positive_phrases):
         return "Positive"
 
-    # TextBlob sentiment for other reviews
-    polarity = TextBlob(text_lower).sentiment.polarity
+    # ------------------ TEXTBLOB ------------------
+    polarity = TextBlob(text).sentiment.polarity
 
     if polarity > 0.1:
         return "Positive"
@@ -78,7 +101,6 @@ def get_sentiment(text):
         return "Negative"
     else:
         return "Neutral"
-
 # ------------------ EMPTY DATAFRAME ------------------
 df = pd.DataFrame(columns=["review"])
 
