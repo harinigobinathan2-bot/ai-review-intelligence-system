@@ -97,7 +97,9 @@ def get_sentiment(text):
         "happy with",
         "worth the price",
         "No issues",
-        "helpful"
+        "helpful",
+        "as expected",
+        
     ]
     #Neutral phrases
     neutral_phrases = [
@@ -119,7 +121,7 @@ def get_sentiment(text):
         "was delivered",
         "nothing special",
         "could be better",
-        "could be better"
+        "stopped working"
 
     ]
 
