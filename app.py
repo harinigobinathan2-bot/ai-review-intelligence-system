@@ -64,7 +64,7 @@ def get_sentiment(text):
     "waste of money",
     "waste money",
     "never buy",
-
+    "not recommend",
     "don't recommend",
     "dont recommend",
     "do not recommend",
@@ -72,7 +72,16 @@ def get_sentiment(text):
     "did not respond",
     "cheap quality",
     "not worth it",
-    "regret buying"
+    "regret buying",
+    "fault product",
+    "faulty",
+    "not working",
+    "not satisfied",
+    "does not work",
+    "unacceptable",
+    "does not match description",
+    "unreliable"
+
 ]
 
     # Positive phrases
@@ -99,7 +108,7 @@ def get_sentiment(text):
         "No issues",
         "helpful",
         "as expected",
-        
+
     ]
     #Neutral phrases
     neutral_phrases = [
