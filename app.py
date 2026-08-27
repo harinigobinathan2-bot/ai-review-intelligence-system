@@ -68,7 +68,9 @@ def get_sentiment(text):
     "don't recommend",
     "dont recommend",
     "do not recommend",
-    "issue"
+    "issue",
+    "did not work",
+    "did not respond"
 ]
 
     # Positive phrases
@@ -91,8 +93,31 @@ def get_sentiment(text):
         "highly recommend",
         "satisfied",
         "happy with",
-        "worth the price"
+        "worth the price",
+        "No issues",
+        "helpful"
     ]
+    #Neutral phrases
+    neutral_phrases = [
+        "okay",
+        "ok",
+        "average",
+        "normal",
+        "as expected",
+        "nothing special",
+        "it is fine",
+        "it's fine",
+        "just fine",
+        "no issues",
+        "no problem",
+        "received the product",
+        "product arrived",
+        "arrived today",
+        "arrived yesterday",
+        "was delivered",
+        "nothing special"
+    ]
+
 
     # Negative phrases FIRST
     if any(phrase in text_lower for phrase in negative_phrases):
@@ -101,6 +126,10 @@ def get_sentiment(text):
     # Positive phrases SECOND
     if any(phrase in text_lower for phrase in positive_phrases):
         return "Positive"
+    
+    # Explicit neutral phrases
+    if any(phrase in text_lower for phrase in neutral_phrases):
+        return "Neutral"
 
     # TextBlob for other reviews
     polarity = TextBlob(text).sentiment.polarity
