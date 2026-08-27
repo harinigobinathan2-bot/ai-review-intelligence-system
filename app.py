@@ -80,7 +80,11 @@ def get_sentiment(text):
     "does not work",
     "unacceptable",
     "does not match description",
-    "unreliable"
+    "unreliable",
+    "unhappy,"
+    "stopped working",
+    "feel cheated",
+    "regret"
 
 ]
 
