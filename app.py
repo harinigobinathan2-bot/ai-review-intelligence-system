@@ -67,7 +67,8 @@ def get_sentiment(text):
 
     "don't recommend",
     "dont recommend",
-    "do not recommend"
+    "do not recommend",
+    "issue"
 ]
 
     # Positive phrases
