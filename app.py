@@ -68,9 +68,11 @@ def get_sentiment(text):
     "don't recommend",
     "dont recommend",
     "do not recommend",
-    "issue",
     "did not work",
-    "did not respond"
+    "did not respond",
+    "cheap quality",
+    "not worth it",
+    "regret buying"
 ]
 
     # Positive phrases
@@ -115,7 +117,10 @@ def get_sentiment(text):
         "arrived today",
         "arrived yesterday",
         "was delivered",
-        "nothing special"
+        "nothing special",
+        "could be better",
+        "could be better"
+
     ]
 
 
